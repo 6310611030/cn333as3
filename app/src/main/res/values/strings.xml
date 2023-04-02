@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">GameApp</string>
+    <string name="back_button">Back</string>
+    <string name="select_game">Select Game</string>
+
+    //NumberGuessingGame
+    <string name="number_guess">Number Guessing Game</string>
+    <string name="try_to">Try to guess the number I\'m thinking of from 1 – 1000!</string>
+    <string name="your_guess">Your Guess</string>
+    <string name="higher">Hint: It\'s higher!</string>
+    <string name="lower">Hint: It\'s lower!</string>
+    <string name="play_again">PLAY AGAIN</string>
+
+    //QuizGame
+    <string name="quiz">Quiz Game</string>
+    <string name="instructions">Choose the correct answer.</string>
+    <string name="skip">Skip</string>
+    <string name="submit">Submit</string>
+    <string name="score">Score: %d</string>
+    <string name="quiz_count">%d of 10 quizzes</string>
+    <string name="enter_your_word">Enter your word</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="you_scored">"You scored: %d"</string>
+    <string name="exit">Exit</string>
+    <string name="try_again">Play Again</string>
+    <string name="wrong_guess">Wrong Guess!</string>
+
+    //TicTacToe
+    <string name="tic_tac_toe">Tic Tac Toe</string>
+
+</resources>
