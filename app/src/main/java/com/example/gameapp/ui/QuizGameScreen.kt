@@ -23,7 +23,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-
+import com.example.gameapp.SCORE_INCREASE
+import com.example.gameapp.MAX_NO_OF_QUIZZES
+import com.example.gameapp.allQuizzes
 
 data class GameUiState(
     val currentQuiz: List<String> = listOf(),

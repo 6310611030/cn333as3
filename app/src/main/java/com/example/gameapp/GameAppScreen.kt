@@ -19,9 +19,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.gameapp.ui.StartGameScreen
-import com.example.gameapp.ui.NumberGuessingGameScreen
-import com.example.gameapp.ui.QuizGameScreen
-import com.example.gameapp.ui.theme.TicTacToeGameScreen
+import com.example.gameapp.ui.GuessingGameApp
+import com.example.gameapp.ui.GameScreen
 
 
 /**
@@ -38,7 +37,7 @@ enum class GameScreen(@StringRes val title: Int) {
 
 @Composable
 fun GameAppBar(
-    currentScreen: GameAppScreen,
+    currentScreen: GameScreen,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
@@ -68,7 +67,7 @@ fun GameAppScreen(
     // Get current back stack entry
     val backStackEntry by navController.currentBackStackEntryAsState()
     // Get the name of the current screen
-    val currentScreen = GameAppScreen().valueOf(
+    val currentScreen = GameScreen.valueOf(
         backStackEntry?.destination?.route ?: GameScreen.Start.name
     )
 
@@ -81,7 +80,7 @@ fun GameAppScreen(
             )
         }
     ) { innerPadding ->
-        val uiState by viewModel.uiState.collectAsState()
+        //val uiState by viewModel.uiState.collectAsState()
 
         NavHost(
             navController = navController,
@@ -91,21 +90,21 @@ fun GameAppScreen(
             composable(route = GameScreen.Start.name) {
                 StartGameScreen(navController = navController)
             }
-            composable(route = GameAppScreen.Game.name + "/{name}",
+            composable(route = GameScreen.SelectGame.name + "/{name}",
                 arguments = listOf(navArgument("name"){
                     type = NavType.StringType
                 })) {
                 val name = requireNotNull(it.arguments).getString("name")
                 if (name != null) {
                     if (name == "NumberGuessing")
-                        NumberGuessingGameScreen()
+                        GuessingGameApp()
                     if (name == "Quiz")
-                        QuizGameScreen()
+                        GameScreen()
                     //if (name == "PairPicture")
 //                  //      PairingGameScreen()
-                    //    QuizGameScreen()
+                    //    GameScreen()
                     //}
                 }
             }
         }
-    }
+    }}

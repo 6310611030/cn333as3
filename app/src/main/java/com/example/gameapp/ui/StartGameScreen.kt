@@ -1,6 +1,5 @@
 package com.example.gameapp.ui
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -18,14 +16,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.gameapp.R
 
-
 @Composable
-fun StartOrderScreen(
-    modifier: Modifier = Modifier
+fun StartGameScreen(
+    modifier: Modifier = Modifier,
+    navController: NavHostController
 ){
     Column(
         modifier = modifier.padding(16.dp).fillMaxWidth(),
@@ -44,17 +42,17 @@ fun StartOrderScreen(
         Button(onClick = {navController.navigate("game/NumberGuessing")},
             Modifier.fillMaxWidth()
         ) {
-            Text(text = stringResource(androidx.compose.foundation.layout.R.string.number_guessing))
+            Text(text = stringResource(R.string.number_guess))
         }
         Button(onClick = {navController.navigate("game/Quiz")},
             Modifier.fillMaxWidth()
         ) {
-            Text(text = stringResource(androidx.compose.foundation.layout.R.string.quiz))
+            Text(text = stringResource(R.string.quiz))
         }
         Button(onClick = {navController.navigate("game/TicTacToe")},
             Modifier.fillMaxWidth()
         ) {
-            Text(text = stringResource(androidx.compose.foundation.layout.R.String.tic_tac_toe))
+            Text(text = stringResource(R.string.tic_tac_toe))
         }
     }
 }
