@@ -7,7 +7,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -21,6 +20,7 @@ import androidx.navigation.navArgument
 import com.example.gameapp.ui.StartGameScreen
 import com.example.gameapp.ui.GuessingGameApp
 import com.example.gameapp.ui.GameScreen
+import com.example.gameapp.ui.TicTacToe
 
 
 /**
@@ -90,6 +90,15 @@ fun GameAppScreen(
             composable(route = GameScreen.Start.name) {
                 StartGameScreen(navController = navController)
             }
+            composable(route = GameScreen.NumberGuessing.name) {
+                GuessingGameApp()
+            }
+            composable(route = "Quiz") {
+                GameScreen()
+            }
+            composable(route = "TicTacToe") {
+                TicTacToe()
+            }
             composable(route = GameScreen.SelectGame.name + "/{name}",
                 arguments = listOf(navArgument("name"){
                     type = NavType.StringType
@@ -97,14 +106,13 @@ fun GameAppScreen(
                 val name = requireNotNull(it.arguments).getString("name")
                 if (name != null) {
                     if (name == "NumberGuessing")
-                        GuessingGameApp()
+                        navController.navigate(GameScreen.NumberGuessing.name)
                     if (name == "Quiz")
-                        GameScreen()
-                    //if (name == "PairPicture")
-//                  //      PairingGameScreen()
-                    //    GameScreen()
-                    //}
+                        navController.navigate(GameScreen.Quiz.name)
+                    if (name == "TicTacToe")
+                        navController.navigate(GameScreen.TicTacToe.name)
                 }
             }
         }
-    }}
+    }
+}

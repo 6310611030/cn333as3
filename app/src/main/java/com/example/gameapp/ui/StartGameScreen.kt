@@ -39,17 +39,17 @@ fun StartGameScreen(
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = stringResource(R.string.select_game), style = MaterialTheme.typography.h4)
         Spacer(modifier = Modifier.height(8.dp))
-        Button(onClick = {navController.navigate("game/NumberGuessing")},
+        Button(onClick = {navController.navigate("NumberGuessing")},
             Modifier.fillMaxWidth()
         ) {
             Text(text = stringResource(R.string.number_guess))
         }
-        Button(onClick = {navController.navigate("game/Quiz")},
+        Button(onClick = {navController.navigate("Quiz")},
             Modifier.fillMaxWidth()
         ) {
             Text(text = stringResource(R.string.quiz))
         }
-        Button(onClick = {navController.navigate("game/TicTacToe")},
+        Button(onClick = {navController.navigate("TicTacToe")},
             Modifier.fillMaxWidth()
         ) {
             Text(text = stringResource(R.string.tic_tac_toe))
